@@ -6,7 +6,7 @@ import App from "./App.jsx";
   import "../dist/styles.min.css"
 */
 
-import "./scss/custom.css";
+import "./scss/custom.scss";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

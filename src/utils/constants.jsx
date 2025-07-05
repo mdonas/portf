@@ -1,7 +1,7 @@
 export const LINKS = [
-    { href: "/#tegnologías", text: "Tegnologías" },
-    { href: "/#proyects", text: "Proyectos" },
-    { href: "/#studies", text: "Estudios" },
-    { href: "/#contact", text: "Contacto" },
-    // { href: "/#experience", text: "Experiencia" },
+  { href: "tech", text: "Tegnologías" },
+  { href: "proyects", text: "Proyectos" },
+  { href: "aboutMe", text: "Sobre Mi" },
+  { href: "contact", text: "Contacto" },
+  // { href: "/#experience", text: "Experiencia" },
 ];

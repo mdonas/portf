@@ -1,16 +1,17 @@
-import Navbar from "./layouts/Header";
-import ReactRouter from "./icons/iconReactRouter";
-import IconGallery from "./components/IconGallery";
+import Header from "./layouts/Header";
+import Tech from "./layouts/Tech";
+import Projects from "./layouts/Projects";
+import Hero from "./layouts/Hero";
 
 function App() {
   return (
     <>
-      <div className="bg-newBlack pt-3 vh-100 background-gradient">
+      <div className="bg-newBlack py-5 background-gradient">
         <div className="container">
-          <div className="d-flex justify-content-center">
-            <Navbar />
-          </div>
-          <IconGallery />
+          <Header />
+          <Hero />
+          <Tech />
+          <Projects />
         </div>
       </div>
     </>
