@@ -35,7 +35,7 @@ $spacers: (
   3: 1rem,
   4: 1.5rem,
   5: 3rem,
-  6: 5rem // ✅ Nuevo espaciado personalizado,
+  6: 5rem // ✅ Nuevo espaciado personalizado,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 @font-face {
@@ -82,6 +82,10 @@ $spacers: (
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 220px; /* Ajustar para pantallas pequeñas */
+    height: 220px;
+  }
 }
 .circle-image img {
   width: 100%;
@@ -96,6 +100,10 @@ $spacers: (
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 240px; /* Ajustar para pantallas pequeñas */
+    height: 240px;
+  }
 }
 
 // Required

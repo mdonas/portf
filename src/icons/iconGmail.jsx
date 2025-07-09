@@ -3,8 +3,7 @@ const Gmail = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 49.4 512 399.42"
-    width="2.5em"
-    height="2.5em"
+    width="2em"
     {...props}
   >
     <g fill="none" fillRule="evenodd">

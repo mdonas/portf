@@ -1,8 +1,7 @@
 import * as React from "react";
 const LinkedIn = (props) => (
   <svg
-    width="2.5em"
-    height="2.5em"
+    width="2em"
     xmlns="http://www.w3.org/2000/svg"
     preserveAspectRatio="xMidYMid"
     viewBox="0 0 256 256"
