@@ -1,7 +1,7 @@
 function ProjectCard() {
   return (
     <>
-      <div class="card col-8 col-md-5 rounded-3 p-0 border-4 border-darkPurple">
+      <div class="card  rounded-3 p-0 border-4 border-darkPurple">
         <img
           class="card-img-top rounded-top-3"
           src="/img/comingSoon.png"

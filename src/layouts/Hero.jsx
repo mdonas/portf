@@ -1,15 +1,23 @@
 import IconGitHub from "../icons/iconGitHub.jsx";
 import IconLinkedin from "../icons/iconLinkedin.jsx";
 import IconGmail from "../icons/iconGmail.jsx";
+import { useScrollAnimation } from "../hooks/useScrollAnimation.js";
 
 function Hero() {
+  const [heroRef, heroVisible] = useScrollAnimation();
+
   return (
     <>
       <div
         className="py-6 row justify-content-center align-items-center"
         id="hero"
+        ref={heroRef}
       >
-        <div className="col-10 col-md-6 text-white mx-auto mx-md-0">
+        <div
+          className={`col-10 col-md-6 text-white mx-auto mx-md-0 scroll-animate ${
+            heroVisible ? "visible" : ""
+          }`}
+        >
           <div id="text">
             <h1>
               Hola, soy <br />{" "}
@@ -53,7 +61,7 @@ function Hero() {
           <div className="mt-3">
             <a
               className="btn btn-darkPurple text-white col-md-5 col-10 col-sm-7"
-              href="/docs/cur.pdf"
+              href="/docs/CVMarcosDonas0725.pdf"
               role="button"
               download={true}
             >
