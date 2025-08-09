@@ -1,7 +1,8 @@
 import IconGitHub from "../icons/iconGitHub.jsx";
 import IconLinkedin from "../icons/iconLinkedin.jsx";
 import IconGmail from "../icons/iconGmail.jsx";
-import { useScrollAnimation } from "../hooks/useScrollAnimation.js";
+import { useScrollAnimation } from "../hooks/useScrollAnimation.jsx";
+import { Link } from "react-scroll";
 
 function Hero() {
   const [heroRef, heroVisible] = useScrollAnimation();
@@ -23,7 +24,7 @@ function Hero() {
               Hola, soy <br />{" "}
               <span className="text-darkPurple">Marcos Donas</span>
             </h1>
-            <h2 className="text-lighterBlack">Desarollador Full Stack y</h2>
+            <h2 className="text-lighterBlack">Desarrollador Full Stack y</h2>
             <h2 className="text-lighterBlack">
               Especialista en Ciberseguridad
             </h2>
@@ -58,21 +59,32 @@ function Hero() {
             </div>
           </div>
 
-          <div className="mt-3">
+          <div className="mt-4 d-flex flex-column flex-sm-row gap-3">
             <a
-              className="btn btn-darkPurple text-white col-md-5 col-10 col-sm-7"
+              className="btn btn-darkPurple text-white px-4"
               href="/docs/CVMarcosDonas0725.pdf"
               role="button"
               download={true}
             >
               Descargar CV
             </a>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              className="btn btn-outline-light px-4"
+            >
+              Hablemos
+            </Link>
           </div>
         </div>
         <div className="col-10 col-md-6 pt-md-0 pt-5 ">
           <div className="circle-border mx-auto me-md-0">
-            <div class="circle-image">
-              <img src="/img/yo.png" alt="" />
+            <div className="circle-image">
+              <img
+                src="/img/yo.png"
+                alt="Marcos Donas - Desarrollador Full Stack"
+              />
             </div>
           </div>
         </div>

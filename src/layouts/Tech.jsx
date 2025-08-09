@@ -1,5 +1,5 @@
 import IconGallery from "../components/IconGallery";
-import { useScrollAnimation } from "../hooks/useScrollAnimation.js";
+import { useScrollAnimation } from "../hooks/useScrollAnimation.jsx";
 
 function Tech() {
   const [techRef, techVisible] = useScrollAnimation();

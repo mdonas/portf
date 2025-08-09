@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import { useScrollAnimation } from "../hooks/useScrollAnimation.js";
+import { useScrollAnimation } from "../hooks/useScrollAnimation.jsx";
 
 const env = {
   PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
@@ -70,7 +70,7 @@ function Contact() {
   };
 
   return (
-    <section className="py-5">
+    <section className="py-5 col-10 col-md-8 mx-auto" id="contact">
       <h2
         ref={titleRef}
         className={`text-center fw-bold text-white mb-5 scroll-animate ${
@@ -79,10 +79,10 @@ function Contact() {
       >
         Contacto
       </h2>
-      <div className="container" id="contact" ref={contactRef}>
-        <div className="row justify-content-center">
+      <div className="container" ref={contactRef}>
+        <div className="row justify-content-center card-background">
           <div
-            className={`col-10 text-white pt-3 px-md-5 scroll-animate-scale ${
+            className={`col-0 text-white pt-3 px-md-5 scroll-animate-scale ${
               contactVisible ? "visible" : ""
             }`}
           >

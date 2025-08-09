@@ -1,4 +1,4 @@
-import { useScrollAnimation } from "../hooks/useScrollAnimation.js";
+import { useScrollAnimation } from "../hooks/useScrollAnimation.jsx";
 
 function About() {
   const [aboutRef, aboutVisible] = useScrollAnimation();
@@ -86,13 +86,34 @@ function About() {
             </div>
           </div>
 
-          {/* Habilidades */}
+          {/* Experiencia */}
           <div className="col-md-6">
-            <div className="text-white p-4 h-100" id="about">
+            <div
+              className={`text-white p-4 h-100 scroll-animate-right stagger-animation-4 ${
+                aboutVisible ? "visible" : ""
+              }`}
+              id="about"
+            >
               <h3 className="h4 mb-3 text-darkPurple">Experiencia Destacada</h3>
+              <div className="mb-3">
+                <h4 className="h5 text-lighterBlack">Proyectos Académicos</h4>
+                <p className="text-white-50 small mb-2">2022 - 2024</p>
+                <ul className="mb-0">
+                  <li className="mb-2">
+                    Desarrollo de aplicaciones web con React y JavaScript
+                  </li>
+                  <li className="mb-2">
+                    Implementación de testing automatizado con Mocha/Chai
+                  </li>
+                  <li className="mb-0">
+                    Creación de algoritmos de optimización para gestión de datos
+                  </li>
+                </ul>
+              </div>
               <div>
                 <h4 className="h5 text-lighterBlack">Desarrollo Full Stack</h4>
-                <ul>
+                <p className="text-white-50 small mb-2">Proyectos Personales</p>
+                <ul className="mb-0">
                   <li className="mb-2">
                     Desarrollo de aplicaciones web seguras
                   </li>

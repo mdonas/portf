@@ -2,97 +2,15 @@
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
-/* Sección Contacto */
-#contact {
-  background: rgba(16, 16, 19, 0.7);
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 16px 0 rgba(120, 119, 198, 0.08);
-}
 
-/* Animaciones de scroll */
-.scroll-animate {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease-out;
-}
-
-.scroll-animate.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.scroll-animate-left {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: all 0.7s ease-out;
-}
-
-.scroll-animate-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.scroll-animate-right {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.7s ease-out;
-}
-
-.scroll-animate-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.scroll-animate-scale {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: all 0.6s ease-out;
-}
-
-.scroll-animate-scale.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.stagger-animation-1 {
-  transition-delay: 0.1s;
-}
-
-.stagger-animation-2 {
-  transition-delay: 0.2s;
-}
-
-.stagger-animation-3 {
-  transition-delay: 0.3s;
-}
-
-.stagger-animation-4 {
-  transition-delay: 0.4s;
-}
-
-body {
-  font-family: "Cascadia Code PL", monospace !important;
-  padding-top: 40px;
-  background-color: rgba(16, 16, 19, 0.903) !important;
-  scroll-behavior: smooth;
-}
-a {
-  cursor: pointer;
-}
-
-a:hover {
-  font-weight: bolder;
-  background-color: rgba(16, 16, 19, 0.903);
-  border-radius: 5px;
-  box-shadow: 0 0 1rem rgba(250, 250, 250, 0.275);
-}
 // Definir colores personalizados
 $custom-colors: (
   "newBlack": #0a0a0a,
   "lighterBlack": #8d8c8c,
   "red": #ef4444,
   "darkPurple": #7877c64d,
+  "cardBackground": rgba(120, 119, 198, 0.08),
+  "html": #e34f26,
 );
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
@@ -103,8 +21,19 @@ $spacers: (
   3: 1rem,
   4: 1.5rem,
   5: 3rem,
-  6: 5rem // ✅ Nuevo espaciado personalizado,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  6: 5rem,
 );
+
+// Required imports - al final
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+/* ===========================================
+   ESTILOS GLOBALES
+=========================================== */
 
 @font-face {
   font-family: "Cascadia Code PL";
@@ -112,6 +41,175 @@ $spacers: (
   font-weight: normal;
   font-style: normal;
 }
+
+body {
+  font-family: "Cascadia Code PL", monospace !important;
+  padding-top: 40px;
+  background-color: rgba(16, 16, 19, 0.903) !important;
+  scroll-behavior: smooth;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:hover {
+  font-weight: bolder;
+  background-color: rgba(16, 16, 19, 0.903);
+  border-radius: 5px;
+  box-shadow: 0 0 1rem rgba(250, 250, 250, 0.275);
+}
+
+/* Evitar que los estilos de enlaces afecten las tarjetas de proyecto */
+#proyects a:hover {
+  font-weight: normal;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* ===========================================
+   CLASES UNIFICADAS PARA FONDOS DE TARJETAS
+=========================================== */
+
+.card-background {
+  background: var(--bs-cardBackground) !important;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px 0 rgba(120, 119, 198, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card-background:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px 0 rgba(120, 119, 198, 0.15);
+}
+
+/* Aplicar a elementos específicos */
+#about,
+.project-card {
+  @extend .card-background;
+  margin-bottom: 2rem;
+}
+
+/* ===========================================
+   MEJORAS PARA IMÁGENES DE PROYECTOS
+=========================================== */
+
+.card-background img {
+  filter: brightness(1.1) contrast(1.05) saturate(1.1);
+  transition: all 0.3s ease;
+}
+
+.card-background:hover img {
+  filter: brightness(1.2) contrast(1.1) saturate(1.2);
+  transform: scale(1.02);
+}
+
+/* ===========================================
+   TARJETAS DE PROYECTOS - ALTURA UNIFORME
+=========================================== */
+
+.card-background {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-background .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-background .card-text {
+  flex: 1;
+}
+
+/* Asegurar que todas las tarjetas de proyecto tengan la misma altura */
+#proyects .card-background {
+  min-height: 450px;
+}
+
+/* ===========================================
+   BADGES DE TECNOLOGÍAS
+=========================================== */
+
+.badge {
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.025em;
+}
+
+.badge.bg-dark {
+  background-color: rgba(52, 58, 64, 0.8) !important;
+  border: 1px solid rgba(120, 119, 198, 0.3) !important;
+  transition: all 0.2s ease;
+}
+
+.badge.bg-dark:hover {
+  background-color: rgba(120, 119, 198, 0.2) !important;
+  border-color: rgba(120, 119, 198, 0.6) !important;
+  transform: translateY(-1px);
+}
+
+/* ===========================================
+   BOTÓN DE GITHUB EN PROYECTOS
+=========================================== */
+
+.github-btn {
+  border-color: rgba(120, 119, 198, 0.4) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.3s ease !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+}
+
+.github-btn:hover {
+  background-color: rgba(120, 119, 198, 0.15) !important;
+  border-color: rgba(120, 119, 198, 0.7) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(120, 119, 198, 0.2) !important;
+}
+
+.github-btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(120, 119, 198, 0.25) !important;
+}
+
+.github-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.github-btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* ===========================================
+   FOOTER
+=========================================== */
+
+.footer-link {
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: var(--bs-white) !important;
+  text-decoration: underline !important;
+}
+
+.hover-text-white {
+  transition: color 0.2s ease;
+}
+
+.hover-text-white:hover {
+  color: var(--bs-white) !important;
+  transform: translateY(-2px);
+}
+
+/* ===========================================
+   EFECTOS Y UTILIDADES
+=========================================== */
 
 .shadow-lg-light {
   box-shadow: 0 0 1rem rgba(250, 250, 250, 0.275);
@@ -132,15 +230,9 @@ $spacers: (
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.card-hover-effect {
-  transition: all 0.3s ease;
-}
-
-.card-hover-effect:hover {
-  transform: translateY(-5px);
-  border: 3px solid var(--bs-darkPurple) !important;
-  box-shadow: 4px 8px 16px var(--bs-darkPurple);
-}
+/* ===========================================
+   IMÁGENES CIRCULARES
+=========================================== */
 
 .circle-image {
   width: 300px;
@@ -150,50 +242,91 @@ $spacers: (
   display: flex;
   justify-content: center;
   align-items: center;
+
   @media (max-width: 768px) {
-    width: 220px; /* Ajustar para pantallas pequeñas */
+    width: 220px;
     height: 220px;
   }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
-.circle-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
 .circle-border {
-  width: 320px; /* Más grande que la imagen */
+  width: 320px;
   height: 320px;
   border-radius: 50%;
-  background-color: var(--bs-darkPurple); /* Color del "borde" */
+  background-color: var(--bs-darkPurple);
   display: flex;
   justify-content: center;
   align-items: center;
+
   @media (max-width: 768px) {
-    width: 240px; /* Ajustar para pantallas pequeñas */
+    width: 240px;
     height: 240px;
   }
 }
 
-/* Sección Sobre Mí */
-#about {
-  background: rgba(120, 119, 198, 0.08);
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 16px 0 rgba(120, 119, 198, 0.08);
+/* ===========================================
+   ANIMACIONES DE SCROLL
+=========================================== */
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Sección Contacto */
-#contact {
-  background: rgba(120, 119, 198, 0.08);
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 16px 0 rgba(120, 119, 198, 0.08);
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.7s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-// Required
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/maps";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/root";
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.7s ease-out;
 
-@import "../../node_modules/bootstrap/scss/bootstrap";
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.stagger-animation-1 {
+  transition-delay: 0.1s;
+}
+.stagger-animation-2 {
+  transition-delay: 0.2s;
+}
+.stagger-animation-3 {
+  transition-delay: 0.3s;
+}
+.stagger-animation-4 {
+  transition-delay: 0.4s;
+}
