@@ -13,7 +13,7 @@ function Projects() {
             projectsVisible ? "visible" : ""
           }`}
         >
-          Projectos
+          Proyectos
         </h1>
         <div className="py-3 row justify-content-center align-items-stretch g-4">
           <div className="col-12 col-md-6 col-lg-4 d-flex">
