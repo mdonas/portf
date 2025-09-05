@@ -73,7 +73,7 @@ function Footer() {
             <ul className="list-unstyled">
               <li className="mb-2">
                 <a
-                  href="/docs/CVMarcosDonas0904.pdf"
+                  href="/docs/CVMarcosDonasRodríguez-Web.pdf"
                   download
                   className="text-white-50 text-decoration-none footer-link"
                 >

@@ -62,7 +62,7 @@ function Hero() {
           <div className="mt-4 d-flex flex-column flex-sm-row gap-3">
             <a
               className="btn btn-darkPurple text-white px-4"
-              href="/docs/CVMarcosDonas0904.pdf"
+              href="/docs/CVMarcosDonasRodríguez-Web.pdf"
               role="button"
               download={true}
             >
